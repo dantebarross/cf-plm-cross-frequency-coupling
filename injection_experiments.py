@@ -14,7 +14,7 @@ from injection_utils import (
 
 # -----------------------------
 # Load ECG data (already filtered in 0.5-2 Hz band) from CSV
-ecg_path = "athlete_1_post_cathodic_processed_ecg.csv"
+ecg_path = "subject_1_ecg_data.csv"
 ecg_df = pd.read_csv(ecg_path, header=0)
 if "time" in ecg_df.columns:
     time_ecg = ecg_df["time"].astype(float).values.flatten()
@@ -29,7 +29,7 @@ else:
 
 # -----------------------------
 # Load EEG data from FIF file and filter to 30-60 Hz
-eeg_path = "athlete_1_post_cathodic.fif"
+eeg_path = "subject_1_eeg_data.fif"
 raw = mne.io.read_raw_fif(eeg_path, preload=True, verbose="ERROR")
 raw.filter(30, 60, fir_design="firwin", verbose="ERROR")
 eeg = raw.get_data(picks=[0]).flatten()
