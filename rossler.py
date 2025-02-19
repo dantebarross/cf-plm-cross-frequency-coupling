@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.integrate import solve_ivp
+import time
 
 def rossler_deriv(t, state, f1, f2, c):
     x1, y1, z1, x2, y2, z2 = state
@@ -12,6 +13,9 @@ def rossler_deriv(t, state, f1, f2, c):
     return [dx1, dy1, dz1, dx2, dy2, dz2]
 
 def simulate_rossler(f1, f2, c, T, fs, init_state):
+    start_time = time.time()
     t_eval = np.linspace(0, T, int(T*fs))
     sol = solve_ivp(rossler_deriv, [0, T], init_state, args=(f1, f2, c), t_eval=t_eval)
+    end_time = time.time()
+    print(f"Runtime for simulate_rossler: {end_time - start_time} seconds")
     return sol.y, t_eval

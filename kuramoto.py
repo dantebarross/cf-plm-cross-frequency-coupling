@@ -1,10 +1,12 @@
 import numpy as np
+from cf_plm import compute_cf_plm
+from plv import compute_plv
 
 def kuramoto_simulation(T, dt, freqs, k, tau):
     N = len(freqs)
     num_steps = int(T/dt)
     theta = np.zeros((N, num_steps))
-    theta[:,0] = np.random.uniform(0, 2*np.pi, size=N)
+    theta[:,0] = np.random.uniform(0, 2*np.pi, size=N) + np.random.normal(0, 0.1, size=N)  # Add variability
     delay_steps = int(tau/dt)
     for t in range(1, num_steps):
         for n in range(N):
