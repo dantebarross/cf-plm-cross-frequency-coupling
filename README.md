@@ -21,7 +21,7 @@ This repository contains code for analyzing cross-frequency phase-locking modula
 ## References
 
 For more information on CF-PLM and its applications, refer to the following article:
-- [CF-PLM: A Measure of Cross-Frequency Coupling](https://example.com/article)
+- [Detection of Cross-Frequency Coupling Between Brain Areas: An Extension of Phase Linearity Measurement](https://pubmed.ncbi.nlm.nih.gov/35546895/)
 
 ## Installation
 
