@@ -1,11 +1,10 @@
 import numpy as np
+from scipy.signal import hilbert
 
-def compute_plv(signal1, signal2):
-    phase1 = np.angle(signal1)
-    phase2 = np.angle(signal2)
-    phase_diff = phase1 - phase2
-    plv = np.abs(np.mean(np.exp(1j * phase_diff)))
-    return plv
+def compute_plv(x, y):
+    phase_diff = np.angle(hilbert(x)) - np.angle(hilbert(y))
+    return np.abs(np.mean(np.exp(1j * phase_diff)))
+
 
 if __name__ == "__main__":
     # Example signals

@@ -1,6 +1,4 @@
 import numpy as np
-from cf_plm import compute_cf_plm
-from plv import compute_plv
 
 def kuramoto_simulation(T, dt, freqs, k, tau):
     N = len(freqs)
